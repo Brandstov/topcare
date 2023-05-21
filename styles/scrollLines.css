@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Archia';
+    src:  url('../fonts/Archia-Regular.otf') format('opentype');
+}
+
+body {
+    background-color: #F3F5F8;
+    font-family: 'Archia';
+    overflow-x: hidden;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.content {
+    max-width: 600px;
+}
+
+h1, p {
+    margin-bottom: 20px;
+}
+
+.visual {
+    overflow: hidden;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: #FF6548;
+}
+
+.ball-line-1 {
+    transition: all 1s ease-in-out;
+    position: absolute;
+    right: 200px;
+    width: 70px;
+}
+
+.ball-line-2 {
+    transition: all 1s ease-in-out;
+    position: absolute;
+    left: -60px;
+    bottom: 200px;
+    height: 70px;
+}

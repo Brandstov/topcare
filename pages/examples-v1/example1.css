@@ -11,6 +11,7 @@
 
 body {
     height: 200vh;
+    overflow-x: hidden;
 }
 
 header {
@@ -275,4 +276,53 @@ footer img {
 
 .delay {
     transition: 1s background-position .7s ease-in-out;
+}
+
+/* Loading screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #F7563C;
+    animation: 1s moveUp 2s ease-out forwards;
+}
+
+@keyframes moveUp {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.loading-screen svg {
+    width: 100px;
+}
+
+.logo-base {
+    transform: scale(0);
+    transform-origin: bottom center;
+    animation: scale 1s ease forwards;
+}
+
+@keyframes scale {
+    to {
+        transform: scale(1);
+    }
+}
+
+.logo-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: 1.2s dash .6s cubic-bezier(.55,.7,.76,.04) forwards;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
 }

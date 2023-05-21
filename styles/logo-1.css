@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-header {
+.loading-screen {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -21,7 +21,7 @@ header {
     }
 }
 
-svg {
+.loading-screen svg {
     width: 100px;
 }
 

@@ -1,7 +1,7 @@
 // Smaller navbar on scroll
-window.onscroll = function () { scrollFunction(); };
+window.onscroll = function () { navResize(); scrollLines();};
 
-function scrollFunction() {
+function navResize() {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         document.getElementById("nav").style.padding = "28px 200px";
     } else {
@@ -48,12 +48,10 @@ ELs_inViewport.forEach(EL => {
 });
 
 //Scroll lines
-window.onscroll = function () { scrollFunction(); };
-
 document.getElementById("red-line").style.transform = "translateY(-100%)";
 document.getElementById("blue-line").style.transform = "translateX(-100%)";
 
-function scrollFunction() {
+function scrollLines() {
     if (document.documentElement.scrollTop > 50 && document.documentElement.scrollTop < 150) {
         document.getElementById("red-line").style.transform = "translateY(-100%)";
         document.getElementById("blue-line").style.transform = "translateX(-100%)";

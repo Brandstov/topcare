@@ -393,7 +393,7 @@ footer img {
     justify-content: center;
     overflow: hidden;
     background-color: #F7563C;
-    animation: 1s moveUp 2s ease-out forwards;
+    animation: .6s moveUp 2s ease-out forwards;
 }
 
 @keyframes moveUp {

@@ -17,23 +17,6 @@ window.addEventListener('scroll', function () {
     scroll.style.transform = `scaleY(${value})`;
 });
 
-//Count effect
-let valueDisplays = document.querySelectorAll('.num');
-let interval = 1000;
-
-valueDisplays.forEach((valueDisplay) => {
-    let startValue = 20;
-    let endValue = parseInt(valueDisplay.getAttribute('data-val'));
-    let duration = Math.floor(interval / endValue);
-    let counter = setInterval(function () {
-        startValue += 1;
-        valueDisplay.textContent = startValue;
-        if (startValue == endValue) {
-            clearInterval(counter);
-        }
-    }, duration);
-});
-
 //Appear effect
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -63,3 +46,91 @@ const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
 ELs_inViewport.forEach(EL => {
     Obs.observe(EL, obsOptions);
 });
+
+//Scroll lines
+window.onscroll = function () { scrollFunction(); };
+
+document.getElementById("red-line").style.transform = "translateY(-100%)";
+document.getElementById("blue-line").style.transform = "translateX(-100%)";
+
+function scrollFunction() {
+    if (document.documentElement.scrollTop > 50 && document.documentElement.scrollTop < 150) {
+        document.getElementById("red-line").style.transform = "translateY(-100%)";
+        document.getElementById("blue-line").style.transform = "translateX(-100%)";
+    } else if (document.documentElement.scrollTop > 150 && document.documentElement.scrollTop < 250) {
+        document.getElementById("red-line").style.transform = "translateY(-80%)";
+        document.getElementById("blue-line").style.transform = "translateX(-80%)";
+    } else if (document.documentElement.scrollTop > 250 && document.documentElement.scrollTop < 350) {
+        document.getElementById("red-line").style.transform = "translateY(-60%)";
+        document.getElementById("blue-line").style.transform = "translateX(-60%)";
+    } else if (document.documentElement.scrollTop > 350 && document.documentElement.scrollTop < 450) {
+        document.getElementById("red-line").style.transform = "translateY(-40%)";
+        document.getElementById("blue-line").style.transform = "translateX(-40%)";
+    } else if (document.documentElement.scrollTop > 450 && document.documentElement.scrollTop < 550) {
+        document.getElementById("red-line").style.transform = "translateY(-20%)";
+        document.getElementById("blue-line").style.transform = "translateX(-20%)";
+    } else if (document.documentElement.scrollTop > 550 && document.documentElement.scrollTop < 650) {
+        document.getElementById("red-line").style.transform = "translateY(0%)";
+        document.getElementById("blue-line").style.transform = "translateX(0%)";
+    } else if (document.documentElement.scrollTop > 650 && document.documentElement.scrollTop < 750) {
+        document.getElementById("red-line").style.transform = "translateY(0%)";
+        document.getElementById("blue-line").style.transform = "translateX(0%)";
+    }
+}
+
+const percentage = document.getElementById("percentage");
+
+window.addEventListener('scroll', function (event) {
+    if (isInViewport(percentage)) {
+
+    }
+}, false);
+
+let count = true
+
+function isInViewport(element) {
+    // Get the bounding client rectangle position in the viewport
+    var bounding = element.getBoundingClientRect();
+
+    // Checking part. Here the code checks if it's *fully* visible
+    // Edit this part if you just want a partial visibility
+    if (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    ) {
+        
+        something()
+        console.log('In the viewport! :)');
+        return true;
+    } else {
+        console.log('Not in the viewport. :(');
+        return false;
+    }
+}
+
+var something = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            executed = true;
+            //Count effect
+        let valueDisplays = document.querySelectorAll('.num');
+        let interval = 3000;
+
+        valueDisplays.forEach((valueDisplay) => {
+            let startValue = 20;
+            let endValue = parseInt(valueDisplay.getAttribute('data-val'));
+            let duration = Math.floor(interval / endValue);
+            let counter = setInterval(function () {
+                startValue += 1;
+                valueDisplay.textContent = startValue;
+                if (startValue == endValue) {
+                    clearInterval(counter);
+                }
+            }, duration);
+        });
+        }
+    };
+})();
